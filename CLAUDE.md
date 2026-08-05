@@ -22,10 +22,21 @@ If the owner asks a question like "what should this be?" — offer options and t
 
 Brown Bear Construction is a custom home builder in Minneapolis, MN. This is a marketing/portfolio site for the business.
 
-The owner is the primary maintainer. They are **not a developer**. When explaining changes or asking questions, use plain English rather than technical jargon. Prefer simple, direct solutions over clever ones.
+**Sessions in this repo are run by a technical intermediary, not the owner.** The maintainer is comfortable with git, the command line, and web development — there's no need to simplify technical explanations or avoid jargon with them. They own the GitHub repo and the Vercel deployment, and they run Claude Code on the owner's behalf.
+
+**The owner still decides everything substantive.** He does not manage GitHub or Vercel and is usually not present in the session. So when a task touches naming, branding, copy, page structure, or tech direction, don't read the maintainer's instruction as owner approval unless they say the owner has already signed off. Do the work, but flag that it needs the owner's confirmation — see Approval workflow below.
+
+Prefer simple, direct solutions over clever ones. That's a property of this project, not a limitation of who's in the session.
 
 Placeholder tagline: *Building Strength, Crafting Excellence*
 Placeholder Instagram: [@brownbearconstructionmn](https://instagram.com/brownbearconstructionmn)
+
+## Approval workflow
+
+- **Typos, broken links, small fixes, and anything the maintainer has explicitly cleared** — commit straight to `main`. It deploys immediately.
+- **Everything else** — work on a branch. Pushing the branch produces a Vercel preview URL the maintainer can share with the owner for sign-off before it merges to `main`. This covers new or rewritten copy, design and layout changes, new pages, project entries, branding and color changes, and any change of tech direction.
+
+When in doubt, branch. A preview URL costs nothing and is far easier than reverting something the owner didn't want live.
 
 ## Current tech stack
 
@@ -76,3 +87,12 @@ None of these have been decided. The scaffold uses placeholders in the meantime.
 ## Deployment
 
 Vercel, connected to this GitHub repo. Every push to the main branch triggers a redeploy. No build command needed for the current static setup — if a framework is added later, update the Vercel project settings accordingly.
+
+## Future handoff
+
+The repo lives under the maintainer's GitHub account (`twaraich`) indefinitely, because the owner doesn't want to manage GitHub or Vercel himself. This isn't expected to change soon, but if he ever wants to take over:
+
+1. Transfer the GitHub repo to the owner's account, then switch it to private if desired.
+2. Have the owner create his own Vercel account on the **Pro** plan — Vercel's free Hobby plan is restricted to non-commercial use, and this is a business site.
+3. Reconnect the repo in Vercel from his account. A GitHub repo transfer breaks the existing Vercel Git connection, so the deployment has to be re-established rather than inherited. Expect to re-link, not to migrate.
+4. Re-point any custom domain at the new Vercel project.
