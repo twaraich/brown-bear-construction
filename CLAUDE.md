@@ -18,13 +18,40 @@ This file gives Claude Code context on the project. It's read automatically when
 
 If the owner asks a question like "what should this be?" — offer options and tradeoffs, but make clear the decision is theirs. Don't assume prior choices in the scaffold reflect their preference; they may not have seen them yet.
 
+## Who you're working with
+
+Two very different people run Claude Code sessions in this repo. Work out which one you're talking to — it's usually obvious from how the request is phrased — and adapt accordingly.
+
+### The maintainer (`twaraich`)
+
+Technically comfortable: knows git, GitHub, Vercel, and how this scaffold is put together. Instructions will usually be specific and technical. No need to simplify explanations, avoid jargon, or hide the mechanics — show diffs, discuss tradeoffs, and talk about branches and deploys directly.
+
+They are not the final approver, though. When a task touches naming, branding, copy, page structure, or tech direction, don't read the maintainer's instruction as owner approval unless they say the owner has already signed off. Do the work, then flag that it still needs the owner's confirmation — see Approval workflow below.
+
+### The owner
+
+A custom home builder with limited coding experience. He knows his business, not web development. Expect:
+
+- Casual, non-technical language — "make the button darker," "move that thing to the top," "the photos look weird on my phone."
+- Screenshots or reference images, with instructions like "make it look like this" or "I want this style."
+- Vague references to elements he doesn't have technical names for — "the header," "the top bar," "that gold thing." Work out what he means from context.
+- No familiarity with branches, commits, deploys, or CSS variables, and no reason to acquire any.
+
+#### How to adapt when the owner is driving
+
+- **Infer intent generously.** If he says "fix the button color," look at the buttons on the page, make a reasonable choice, and show him the result. Don't ask five clarifying questions before doing anything. If you had to guess, say what you guessed so he can redirect you.
+- **Treat a reference image as the source of truth.** Match it as closely as the current scaffold allows. Pull what you need out of the image — colors, spacing, type — rather than asking him for hex codes, and don't lecture him on design tradeoffs.
+- **Skip the technical explanation unless he asks.** He doesn't need to hear about flexbox, git, or deployment pipelines. He needs "done, here's what changed, want me to publish it live?"
+- **Don't dump code at him.** Describe what changed in plain English — "I made the buttons darker and gave them a subtle shadow" — instead of pasting a diff.
+- **Handle git and deployment silently** unless something goes wrong. Not "I committed and pushed to main," just "that's live now" or "want me to save this?"
+- **On real ambiguity, ask exactly one plain question.** If guessing wrong would be costly — "change the company name" could be a rebrand, a typo fix, or a test — stop and ask. One question at a time, never a list.
+- **Lean toward doing what he asks.** The placeholder framing above applies double here. He's the final approver, so if a request conflicts with an earlier scaffold choice, the scaffold gives way.
+
 ## About this project
 
 Brown Bear Construction is a custom home builder in Minneapolis, MN. This is a marketing/portfolio site for the business.
 
-**Sessions in this repo are run by a technical intermediary, not the owner.** The maintainer is comfortable with git, the command line, and web development — there's no need to simplify technical explanations or avoid jargon with them. They own the GitHub repo and the Vercel deployment, and they run Claude Code on the owner's behalf.
-
-**The owner still decides everything substantive.** He does not manage GitHub or Vercel and is usually not present in the session. So when a task touches naming, branding, copy, page structure, or tech direction, don't read the maintainer's instruction as owner approval unless they say the owner has already signed off. Do the work, but flag that it needs the owner's confirmation — see Approval workflow below.
+The maintainer owns the GitHub repo and the Vercel deployment and runs most sessions; the owner runs them too, and decides everything substantive. Read "Who you're working with" above before responding — how you communicate differs sharply depending on which of them is driving.
 
 Prefer simple, direct solutions over clever ones. That's a property of this project, not a limitation of who's in the session.
 
