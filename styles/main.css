@@ -42,6 +42,8 @@ nav {
   max-width: var(--max-width);
   margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   justify-content: space-between;
   align-items: center;
 }
@@ -74,7 +76,8 @@ main {
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  /* Scales smoothly between phone and desktop instead of jumping at the breakpoint. */
+  font-size: clamp(1.875rem, 6vw, 2.5rem);
   margin: 0 0 0.5rem;
 }
 
@@ -125,4 +128,39 @@ footer .social {
   list-style: none;
   padding: 0;
   margin: 1rem 0 0;
+}
+
+/*
+  Mobile. One breakpoint is enough for a layout this simple — no hamburger
+  menu, the nav just stacks. Raise or lower 640px freely if the header
+  starts to feel cramped at a different width.
+*/
+@media (max-width: 640px) {
+  header { padding: 1rem 1.25rem; }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  nav ul { gap: 1.25rem; }
+
+  main { padding: 2rem 1.25rem; }
+
+  .hero { padding: 2.5rem 0; }
+
+  /*
+    Without this, the 280px track minimum in the base .project-grid rule
+    overflows the viewport on narrow phones and the page scrolls sideways.
+  */
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  footer {
+    padding: 2rem 1.25rem;
+    margin-top: 3rem;
+  }
 }
