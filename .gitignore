@@ -1,0 +1,26 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+
+# Node / framework build output (in case a framework gets added later)
+node_modules/
+dist/
+build/
+.next/
+.astro/
+.svelte-kit/
+.vercel/
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*

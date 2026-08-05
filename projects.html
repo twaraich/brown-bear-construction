@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+  PLACEHOLDER PAGE. Every element on this page — the company name, tagline,
+  copy, structure, styling, and links — is a placeholder chosen as a
+  reasonable starting point. The site owner is the final approver of all
+  content and design decisions. Change anything freely.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Brown Bear Construction</title>
+  <meta name="description" content="A portfolio of custom homes built by Brown Bear Construction in Minneapolis, MN.">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo"><span>Brown Bear Construction</span></a>
+      <ul>
+        <li><a href="/projects.html" aria-current="page">Projects</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>Our Work</h1>
+      <p>A selection of completed custom homes.</p>
+
+      <!--
+        TODO: Project entries live as markdown files in /content/projects/.
+        Each project should show a photo, title, location, year, and short description.
+        When ready, either hand-build these cards in HTML or move to a framework
+        that reads the markdown files directly.
+      -->
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-image-placeholder">Photo</div>
+          <h2>Project Title</h2>
+          <p>Location · Year</p>
+          <p>Short description of the project.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Brown Bear Construction. All rights reserved.</p>
+    <ul class="social">
+      <li><a href="https://instagram.com/brownbearconstructionmn" target="_blank" rel="noopener">Instagram</a></li>
+    </ul>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>
