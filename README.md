@@ -28,10 +28,10 @@ The scaffold exists to give the site a running start, not to constrain what it b
 
 Two people are involved, with a clear split:
 
-- **The owner** is the final approver on everything substantive — the company name, branding, logo, colors, copy, page structure, and the overall direction of the site. He does not manage GitHub or Vercel directly.
-- **The maintainer** (currently the GitHub account `twaraich`) does the technical work — running Claude Code sessions, editing files, committing, and managing the GitHub repo and the Vercel deployment.
+- **The owner** is the final approver on everything substantive — the company name, branding, logo, colors, copy, page structure, and the overall direction of the site. He does not manage GitHub or Cloudflare directly.
+- **The maintainer** (currently the GitHub account `twaraich`) does the technical work — running Claude Code sessions, editing files, committing, and managing the GitHub repo and the Cloudflare Pages deployment.
 
-The maintainer executes; the owner decides. When a change involves a real choice rather than a fix, it goes to the owner first — usually as a Vercel preview URL from a branch, so he can see it on a real page before it goes live.
+The maintainer executes; the owner decides. Content and presentation changes — copy, photos, project entries, colors, small style tweaks — the owner can approve and publish on his own. Structural changes go to a branch first, where a Cloudflare Pages preview URL lets him see the result on a real page before the maintainer merges it. `CLAUDE.md` has the full split.
 
 ---
 
@@ -61,7 +61,7 @@ Changes are made by the maintainer, working from a local clone of this repo.
 ### Typical flow
 
 1. Pull the latest `main`.
-2. For anything beyond a typo or a small fix, start a branch. Pushing the branch produces a Vercel preview URL you can send to the owner for sign-off before the change goes live.
+2. For structural changes, start a branch. Pushing the branch produces a Cloudflare Pages preview URL you can send to the owner for sign-off before the change goes live.
 3. Make the edits. Claude Code is the usual tool and reads `CLAUDE.md` automatically, so it follows the project's conventions — but editing by hand works just as well.
 4. Commit with a message that says what changed and why.
 5. Push. Merging to `main` publishes to the live site (see below).
@@ -82,15 +82,17 @@ Opening `index.html` straight from the filesystem looks like it works, but every
 
 ## How the site gets published
 
-The site is deployed with **Vercel**, a free hosting service that publishes the site automatically.
+The site is hosted on **Cloudflare Pages**, which republishes it automatically from this repo. Its free tier covers what this site needs: commercial use is permitted and bandwidth is unmetered, so there's no plan to upgrade to and no usage cliff to watch for.
 
 Here's the flow:
 
 1. You (or Claude Code) make a change to a file.
-2. That change is saved to GitHub (the "cloud filing cabinet" that holds this repo).
-3. Vercel notices the change and republishes the site — usually within a minute.
+2. That change is committed and pushed to GitHub.
+3. Cloudflare Pages picks up the push and rebuilds — usually within a minute.
 
-You don't need to manually upload anything. Once Vercel is connected to the GitHub repo, it just works.
+Pushes to `main` update the live site. Pushes to any other branch get their own preview URL instead, which is what makes the branch-and-review flow above work.
+
+Nothing is ever uploaded by hand. Once Cloudflare Pages is connected to the GitHub repo, it just works.
 
 ---
 
@@ -121,11 +123,11 @@ Once your logo files are added to `assets/logo/`, replace the text placeholder i
 
 ## Domain and email
 
-- **Domain**: TODO — Once you pick a domain name (e.g. `brownbearconstruction.com`), Vercel can connect it in the project settings.
+- **Domain**: TODO — Once a domain name is picked (e.g. `brownbearconstruction.com`), connect it under Custom domains in the Cloudflare Pages project.
 - **Business email**: TODO — Currently the contact page uses a placeholder email. Update it once your real business email is set up.
 
 ---
 
 ## Questions?
 
-Content, design, and direction questions go to the owner — those are his calls. Technical questions (git, Vercel, how the site works) sit with the maintainer. `CLAUDE.md` holds the working conventions and the running list of decisions still open.
+Content, design, and direction questions go to the owner — those are his calls. Technical questions (git, Cloudflare Pages, how the site works) sit with the maintainer. `CLAUDE.md` holds the working conventions and the running list of decisions still open.
