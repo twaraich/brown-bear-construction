@@ -33,6 +33,9 @@ body {
 a { color: var(--color-gold); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+/* Keeps full-size project photos from overflowing their container on mobile. */
+img { max-width: 100%; height: auto; }
+
 header {
   border-bottom: 1px solid #eee;
   padding: 1rem 2rem;

@@ -14,7 +14,7 @@ build/
 .next/
 .astro/
 .svelte-kit/
-.vercel/
+.wrangler/
 
 # Environment variables and secrets
 .env
