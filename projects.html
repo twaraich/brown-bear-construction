@@ -11,13 +11,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects — Brown Bear Construction</title>
   <meta name="description" content="A portfolio of custom homes built by Brown Bear Construction in Minneapolis, MN.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
   <header>
     <nav>
-      <a href="/" class="logo"><span>Brown Bear Construction</span></a>
+      <a href="/" class="logo">
+        <span class="logo-mark"><span>B</span><span class="divider"></span><span>B</span></span>
+        <span class="logo-text">
+          <span class="name">BROWN BEAR</span>
+          <span class="type">CONSTRUCTION</span>
+        </span>
+      </a>
       <ul>
+        <li><a href="/">Home</a></li>
         <li><a href="/projects.html" aria-current="page">Projects</a></li>
         <li><a href="/about.html">About</a></li>
         <li><a href="/contact.html">Contact</a></li>
@@ -26,29 +35,74 @@
   </header>
 
   <main>
+    <div class="page-hero">
+      <img src="assets/hero/interior.webp" alt="Recently completed Brown Bear Construction interior">
+      <div class="page-hero-text">
+        <div class="eyebrow">SELECTED WORK</div>
+        <h1>Projects</h1>
+      </div>
+    </div>
+
     <section>
-      <h1>Our Work</h1>
-      <p>A selection of completed custom homes.</p>
+      <p class="intro-text" style="margin-top: 3rem;">Residential and commercial construction across Minneapolis — built with precision, finished with care.</p>
 
       <!--
         TODO: Project entries live as markdown files in /content/projects/.
-        Each project should show a photo, title, location, year, and short description.
-        When ready, either hand-build these cards in HTML or move to a framework
-        that reads the markdown files directly.
+        Photos are still placeholders — add real project photos to
+        /assets/projects/<slug>/ and swap the .project-image-placeholder
+        divs below for <img> tags once they're ready.
       -->
       <div class="project-grid">
-        <article class="project-card">
+        <button class="project-card" data-project="foxpoint" aria-haspopup="dialog">
+          <div class="project-card-head">
+            <div>
+              <div class="name">Foxpoint</div>
+              <div class="location">Minneapolis, MN</div>
+            </div>
+            <div class="category">Custom Home</div>
+          </div>
           <div class="project-image-placeholder">Photo</div>
-          <h2>Project Title</h2>
-          <p>Location · Year</p>
-          <p>Short description of the project.</p>
-        </article>
+        </button>
+
+        <button class="project-card" data-project="lyndale" aria-haspopup="dialog">
+          <div class="project-card-head">
+            <div>
+              <div class="name">Lyndale</div>
+              <div class="location">Minneapolis, MN</div>
+            </div>
+            <div class="category">Tri-Plex</div>
+          </div>
+          <div class="project-image-placeholder">Photo</div>
+        </button>
+
+        <button class="project-card" data-project="burr" aria-haspopup="dialog">
+          <div class="project-card-head">
+            <div>
+              <div class="name">Burr</div>
+              <div class="location">St. Paul, MN</div>
+            </div>
+            <div class="category">Duplex</div>
+          </div>
+          <div class="project-image-placeholder">Photo</div>
+        </button>
       </div>
     </section>
+
+    <div class="lightbox" id="project-lightbox" hidden>
+      <div class="lightbox-head">
+        <div>
+          <div class="name" id="lightbox-name"></div>
+          <div class="meta" id="lightbox-meta"></div>
+        </div>
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">&#10005;</button>
+      </div>
+      <div class="lightbox-grid" id="lightbox-grid"></div>
+    </div>
   </main>
 
   <footer>
     <p>&copy; <span id="year"></span> Brown Bear Construction. All rights reserved.</p>
+    <p>Minneapolis, MN &nbsp;·&nbsp; +1 (612) 889-4337</p>
     <ul class="social">
       <li><a href="https://instagram.com/brownbearconstructionmn" target="_blank" rel="noopener">Instagram</a></li>
     </ul>

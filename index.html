@@ -11,6 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brown Bear Construction — Custom Home Builder in Minneapolis</title>
   <meta name="description" content="Brown Bear Construction is a custom home builder based in Minneapolis, MN. Building Strength, Crafting Excellence.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
@@ -18,9 +20,14 @@
     <nav>
       <a href="/" class="logo">
         <!-- TODO: Replace with logo image once uploaded to assets/logo/ -->
-        <span>Brown Bear Construction</span>
+        <span class="logo-mark"><span>B</span><span class="divider"></span><span>B</span></span>
+        <span class="logo-text">
+          <span class="name">BROWN BEAR</span>
+          <span class="type">CONSTRUCTION</span>
+        </span>
       </a>
       <ul>
+        <li><a href="/" aria-current="page">Home</a></li>
         <li><a href="/projects.html">Projects</a></li>
         <li><a href="/about.html">About</a></li>
         <li><a href="/contact.html">Contact</a></li>
@@ -29,11 +36,18 @@
   </header>
 
   <main>
+    <div class="page-hero">
+      <img src="assets/hero/interior.webp" alt="Recently completed Brown Bear Construction interior">
+      <div class="page-hero-text">
+        <div class="eyebrow">CUSTOM HOMES IN MINNEAPOLIS</div>
+        <h1>Brown Bear Construction</h1>
+      </div>
+    </div>
+
     <section class="hero">
-      <h1>Brown Bear Construction</h1>
       <p class="tagline">Building Strength, Crafting Excellence</p>
-      <p>Custom home builder based in Minneapolis, Minnesota.</p>
-      <a href="/contact.html" class="cta">Start Your Project</a>
+      <p class="intro-text">Custom home builder based in Minneapolis, Minnesota.</p>
+      <a href="/projects.html" class="cta">View Our Work</a>
     </section>
 
     <section class="intro">
@@ -45,6 +59,7 @@
 
   <footer>
     <p>&copy; <span id="year"></span> Brown Bear Construction. All rights reserved.</p>
+    <p>Minneapolis, MN &nbsp;·&nbsp; +1 (612) 889-4337</p>
     <ul class="social">
       <li><a href="https://instagram.com/brownbearconstructionmn" target="_blank" rel="noopener">Instagram</a></li>
     </ul>
