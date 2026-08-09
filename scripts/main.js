@@ -30,8 +30,9 @@ const PROJECTS = {
     category: "Triplex",
     photos: [
       { src: "assets/projects/dale/exterior.webp", alt: "Dale exterior" },
-      { src: "assets/projects/dale/kitchen.webp", alt: "Dale kitchen and living room" },
-      { src: "assets/projects/dale/dining.webp", alt: "Dale dining nook" },
+      { src: "assets/projects/dale/great-room.webp", alt: "Dale living, dining, and kitchen great room" },
+      { src: "assets/projects/dale/kitchen.webp", alt: "Dale kitchen island" },
+      { src: "assets/projects/dale/dining.webp", alt: "Dale dining room" },
     ],
   },
   burr: {
