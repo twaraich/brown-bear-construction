@@ -17,6 +17,11 @@ const PROJECTS = {
       { src: "assets/projects/foxpoint/exterior.webp", alt: "Foxpoint exterior" },
       { src: "assets/projects/foxpoint/bookshelf.webp", alt: "Foxpoint built-in bookshelf" },
       { src: "assets/projects/foxpoint/fireplace.webp", alt: "Foxpoint stone fireplace" },
+      { src: "assets/projects/foxpoint/kitchen-sink.webp", alt: "Foxpoint kitchen sink and windows" },
+      { src: "assets/projects/foxpoint/mudroom-hooks.webp", alt: "Foxpoint mudroom hooks" },
+      { src: "assets/projects/foxpoint/coffee-bar.webp", alt: "Foxpoint built-in coffee bar" },
+      { src: "assets/projects/foxpoint/mudroom-hallway.webp", alt: "Foxpoint mudroom hallway" },
+      { src: "assets/projects/foxpoint/staircase.webp", alt: "Foxpoint staircase and entry" },
     ],
   },
   lyndale: {
