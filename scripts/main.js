@@ -7,13 +7,36 @@ if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
-// Project lightbox (projects.html only). Photos are still placeholders —
-// once real photos exist, swap PROJECTS[slug].photos for image paths and
-// render <img> tags instead of the placeholder boxes below.
+// Project lightbox (projects.html only).
 const PROJECTS = {
-  foxpoint: { name: "Foxpoint", location: "Minneapolis, MN", category: "Custom Home", photos: 4 },
-  lyndale: { name: "Lyndale", location: "Minneapolis, MN", category: "Tri-Plex", photos: 4 },
-  burr: { name: "Burr", location: "St. Paul, MN", category: "Duplex", photos: 4 },
+  foxpoint: {
+    name: "Foxpoint",
+    location: "Minneapolis, MN",
+    category: "Custom Home",
+    photos: [
+      { src: "assets/projects/foxpoint/exterior.webp", alt: "Foxpoint exterior" },
+      { src: "assets/projects/foxpoint/bookshelf.webp", alt: "Foxpoint built-in bookshelf" },
+      { src: "assets/projects/foxpoint/fireplace.webp", alt: "Foxpoint stone fireplace" },
+    ],
+  },
+  lyndale: {
+    name: "Lyndale",
+    location: "Minneapolis, MN",
+    category: "Tri-Plex",
+    photos: [
+      { src: "assets/projects/lyndale/exterior.webp", alt: "Lyndale exterior" },
+      { src: "assets/projects/lyndale/kitchen.webp", alt: "Lyndale kitchen and living room" },
+      { src: "assets/projects/lyndale/dining.webp", alt: "Lyndale dining nook" },
+    ],
+  },
+  burr: {
+    name: "Burr",
+    location: "St. Paul, MN",
+    category: "Duplex",
+    photos: [
+      { src: "assets/projects/burr/exterior.webp", alt: "Burr exterior" },
+    ],
+  },
 };
 
 const lightbox = document.getElementById("project-lightbox");
@@ -29,12 +52,15 @@ if (lightbox) {
     lightboxName.textContent = project.name;
     lightboxMeta.textContent = project.location + " · " + project.category;
     lightboxGrid.innerHTML = "";
-    for (let i = 1; i <= project.photos; i++) {
-      const photo = document.createElement("div");
-      photo.className = "project-image-placeholder";
-      photo.textContent = "Photo " + i;
-      lightboxGrid.appendChild(photo);
-    }
+    project.photos.forEach((photo) => {
+      const wrap = document.createElement("div");
+      wrap.className = "project-photo";
+      const img = document.createElement("img");
+      img.src = photo.src;
+      img.alt = photo.alt;
+      wrap.appendChild(img);
+      lightboxGrid.appendChild(wrap);
+    });
     lightbox.hidden = false;
   }
 
