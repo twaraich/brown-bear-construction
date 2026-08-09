@@ -1,13 +1,13 @@
 ---
-title: "Lyndale"
+title: "Dale"
 location: "Minneapolis, MN"
 year:
-featured_image: "/assets/projects/lyndale/exterior.webp"
+featured_image: "/assets/projects/dale/exterior.webp"
 ---
 
-# Lyndale
+# Dale
 
-Tri-plex in Minneapolis, MN.
+Triplex in Minneapolis, MN.
 
 <!-- TODO: Write a short description. -->
 

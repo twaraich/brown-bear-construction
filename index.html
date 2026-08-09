@@ -10,7 +10,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brown Bear Construction — Custom Home Builder in Minneapolis</title>
-  <meta name="description" content="Brown Bear Construction is a custom home builder based in Minneapolis, MN. Building Strength, Crafting Excellence.">
+  <meta name="description" content="A portfolio of custom homes, renovations, and commercial builds by Brown Bear Construction, a Minneapolis, MN general contractor.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
@@ -27,10 +27,9 @@
         </span>
       </a>
       <ul>
-        <li><a href="/" aria-current="page">Home</a></li>
-        <li><a href="/projects.html">Projects</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/" aria-current="page">Projects</a></li>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/contact.html">Contact Us</a></li>
       </ul>
     </nav>
   </header>
@@ -39,22 +38,78 @@
     <div class="page-hero">
       <img src="assets/hero/interior.webp" alt="Recently completed Brown Bear Construction interior">
       <div class="page-hero-text">
-        <div class="eyebrow">CUSTOM HOMES IN MINNEAPOLIS</div>
-        <h1>Brown Bear Construction</h1>
+        <div class="eyebrow">SELECTED WORK</div>
+        <h1>Projects</h1>
       </div>
     </div>
 
-    <section class="hero">
-      <p class="tagline">Building Strength, Crafting Excellence</p>
-      <p class="intro-text">Custom home builder based in Minneapolis, Minnesota.</p>
-      <a href="/projects.html" class="cta">View Our Work</a>
+    <section>
+      <p class="intro-text" style="margin-top: 3rem;">Residential and commercial construction across the Twin Cities metro — built with precision, finished with care.</p>
+
+      <!-- Project entries live as markdown files in /content/projects/. -->
+      <div class="project-grid">
+        <button class="project-card" data-project="foxpoint" aria-haspopup="dialog">
+          <div class="project-card-head">
+            <div>
+              <div class="name">Foxpoint</div>
+              <div class="location">Minneapolis, MN</div>
+            </div>
+            <div class="category">Custom Home</div>
+          </div>
+          <div class="project-photo">
+            <img src="assets/projects/foxpoint/exterior.webp" alt="Foxpoint custom home exterior">
+          </div>
+        </button>
+
+        <button class="project-card" data-project="dale" aria-haspopup="dialog">
+          <div class="project-card-head">
+            <div>
+              <div class="name">Dale</div>
+              <div class="location">Minneapolis, MN</div>
+            </div>
+            <div class="category">Triplex</div>
+          </div>
+          <div class="project-photo">
+            <img src="assets/projects/dale/exterior.webp" alt="Dale triplex exterior">
+          </div>
+        </button>
+
+        <button class="project-card" data-project="burr" aria-haspopup="dialog">
+          <div class="project-card-head">
+            <div>
+              <div class="name">Burr</div>
+              <div class="location">St. Paul, MN</div>
+            </div>
+            <div class="category">Duplex</div>
+          </div>
+          <div class="project-photo">
+            <img src="assets/projects/burr/exterior.webp" alt="Burr duplex exterior">
+          </div>
+        </button>
+
+        <div class="project-card coming-soon">
+          <div class="project-card-head">
+            <div>
+              <div class="name">Colonial</div>
+              <div class="location">Minneapolis, MN</div>
+            </div>
+            <div class="category">Custom Home</div>
+          </div>
+          <div class="coming-soon-photo">Coming Soon</div>
+        </div>
+      </div>
     </section>
 
-    <section class="intro">
-      <h2>Welcome</h2>
-      <!-- TODO: Add homepage intro copy -->
-      <p>Placeholder for a short introduction to the company and what makes it different.</p>
-    </section>
+    <div class="lightbox" id="project-lightbox" hidden>
+      <div class="lightbox-head">
+        <div>
+          <div class="name" id="lightbox-name"></div>
+          <div class="meta" id="lightbox-meta"></div>
+        </div>
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">&#10005;</button>
+      </div>
+      <div class="lightbox-grid" id="lightbox-grid"></div>
+    </div>
   </main>
 
   <footer>

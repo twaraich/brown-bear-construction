@@ -133,7 +133,7 @@ None of these have been decided. The scaffold uses placeholders in the meantime.
 
 ## Guidance for changes
 
-- **When adding a project:** create the markdown file in `content/projects/`, add photos to `assets/projects/<slug>/`, then add a card to `projects.html`. Ask if the owner would like the photos optimized/resized.
+- **When adding a project:** create the markdown file in `content/projects/`, add photos to `assets/projects/<slug>/`, then add a card to `index.html` (the homepage doubles as the projects page). Ask if the owner would like the photos optimized/resized.
 - **When changing content on a page:** update the HTML file directly. If the same content exists in a markdown file under `content/`, update both so they stay in sync (until the site is wired up to read markdown automatically).
 - **When considering a framework migration:** don't do it silently. Explain the tradeoffs to the owner first — what problem it solves, what changes for them, and what it costs in complexity. The content in `content/` is structured to make migration to Astro, Eleventy, Next.js, or similar tools straightforward.
 - **When adding dependencies:** ask first. This project has none right now, and that's a feature.

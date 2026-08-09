@@ -7,7 +7,7 @@ if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
-// Project lightbox (projects.html only).
+// Project lightbox (homepage only).
 const PROJECTS = {
   foxpoint: {
     name: "Foxpoint",
@@ -24,14 +24,14 @@ const PROJECTS = {
       { src: "assets/projects/foxpoint/staircase.webp", alt: "Foxpoint staircase and entry" },
     ],
   },
-  lyndale: {
-    name: "Lyndale",
+  dale: {
+    name: "Dale",
     location: "Minneapolis, MN",
-    category: "Tri-Plex",
+    category: "Triplex",
     photos: [
-      { src: "assets/projects/lyndale/exterior.webp", alt: "Lyndale exterior" },
-      { src: "assets/projects/lyndale/kitchen.webp", alt: "Lyndale kitchen and living room" },
-      { src: "assets/projects/lyndale/dining.webp", alt: "Lyndale dining nook" },
+      { src: "assets/projects/dale/exterior.webp", alt: "Dale exterior" },
+      { src: "assets/projects/dale/kitchen.webp", alt: "Dale kitchen and living room" },
+      { src: "assets/projects/dale/dining.webp", alt: "Dale dining nook" },
     ],
   },
   burr: {
@@ -59,7 +59,7 @@ if (lightbox) {
     lightboxGrid.innerHTML = "";
     project.photos.forEach((photo) => {
       const wrap = document.createElement("div");
-      wrap.className = "project-photo";
+      wrap.className = "lightbox-photo";
       const img = document.createElement("img");
       img.src = photo.src;
       img.alt = photo.alt;
@@ -73,7 +73,7 @@ if (lightbox) {
     lightbox.hidden = true;
   }
 
-  document.querySelectorAll(".project-card").forEach((card) => {
+  document.querySelectorAll(".project-card[data-project]").forEach((card) => {
     card.addEventListener("click", () => openProject(card.dataset.project));
   });
 

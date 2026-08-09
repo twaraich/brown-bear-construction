@@ -177,9 +177,24 @@ main {
 
 /* Centered text hero used on pages without a banner photo (About, Contact). */
 .text-hero {
-  max-width: 700px;
+  max-width: 640px;
   margin: 2rem auto 3rem;
   text-align: center;
+}
+
+.text-hero p {
+  font-size: 1.0625rem;
+  line-height: 1.9;
+  text-align: justify;
+  color: rgba(23, 20, 15, 0.72);
+  margin-top: 1.75rem;
+}
+
+.text-divider {
+  width: 48px;
+  height: 1px;
+  background: rgba(23, 20, 15, 0.25);
+  margin: 1.75rem auto 2.25rem;
 }
 
 .text-hero .eyebrow {
@@ -199,29 +214,11 @@ main {
 .text-hero h2 {
   font-family: var(--font-serif);
   font-weight: 500;
-  font-size: clamp(1.4rem, 3vw, 1.8rem);
-  margin: 0 0 1.5rem;
-}
-
-.hero {
-  text-align: center;
-  padding: 3rem 0;
-}
-
-.hero h1 {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  /* Scales smoothly between phone and desktop instead of jumping at the breakpoint. */
-  font-size: clamp(2.25rem, 7vw, 3.5rem);
-  margin: 0 0 0.75rem;
-}
-
-.tagline {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
-  color: var(--color-text);
   font-style: italic;
-  letter-spacing: 0.02em;
+  font-size: clamp(1.4rem, 3vw, 1.875rem);
+  line-height: 1.4;
+  margin: 0 0 1.5rem;
+  color: rgba(23, 20, 15, 0.85);
 }
 
 .intro-text {
@@ -283,14 +280,20 @@ main {
   white-space: nowrap;
 }
 
-.project-image-placeholder {
-  background: #f2f0ec;
-  color: var(--color-muted);
+.project-card.coming-soon { cursor: default; }
+
+.coming-soon-photo {
   aspect-ratio: 4 / 5;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
+  background: rgba(23, 20, 15, 0.04);
+  border: 1px dashed rgba(23, 20, 15, 0.2);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.375rem;
+  color: rgba(23, 20, 15, 0.4);
 }
 
 .project-photo {
@@ -353,28 +356,25 @@ main {
 .lightbox-grid {
   flex: 1;
   overflow-y: auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding-right: 0.75rem;
 }
 
-.lightbox-grid .project-image-placeholder,
-.lightbox-grid .project-photo {
-  aspect-ratio: 4 / 3;
-  margin-bottom: 0;
+.lightbox-photo {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 3 / 2;
+  flex-shrink: 0;
 }
 
-.contact-photo {
-  max-width: 700px;
-  margin: 0 auto 3rem;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-}
-
-.contact-photo img {
+.lightbox-photo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -507,8 +507,6 @@ footer .social {
   }
 
   .form-row { grid-template-columns: 1fr; }
-
-  .lightbox-grid { grid-template-columns: 1fr; }
 
   footer {
     padding: 2rem 1.25rem;

@@ -1,17 +1,11 @@
 # About Brown Bear Construction
 
-*Building Strength, Crafting Excellence*
+*Building strength, crafting excellence.*
 
-Brown Bear Construction is a custom home builder based in Minneapolis, Minnesota.
+Brown Bear Construction is a Minneapolis-based general contractor specializing in semi-custom to full-custom home construction, multifamily construction, renovations, and commercial spaces. Since 2018.
 
 ## Our Story
 
-Brown Bear Construction is a Minneapolis-based general contractor building custom homes, renovations, and commercial spaces. Every project is run by the same hands from groundbreaking to final walkthrough — no subcontracted management, no shortcuts. We keep crews small and standards high. (Since 2018.)
+We believe a home should be felt before it's explained. Walk through the door, and you should be able to picture your life unfolding there: coffee in the morning light of the back room, loved ones gathered around the table, the quiet moments that make a house a home.
 
-## Our Approach
-
-<!-- TODO: Describe how you work with clients and what makes your homes different. -->
-
-## Service Area
-
-<!-- TODO: List the areas around Minneapolis where you build. -->
+Our homes are built with a timeless, classic aesthetic: clean lines, honest materials, and proportions that feel right for decades to come — the kind you pass down rather than remodel your way out of.

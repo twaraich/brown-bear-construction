@@ -39,7 +39,7 @@ The maintainer executes; the owner decides. Content and presentation changes —
 
 Think of this like a filing cabinet for your website. Every folder has one job:
 
-- **`index.html`, `projects.html`, `about.html`, `contact.html`** — The four main pages of the website. Open any of these in a text editor to see or change what's on that page.
+- **`index.html`, `about.html`, `contact.html`** — The three main pages of the website. `index.html` is the homepage and shows the project portfolio. Open any of these in a text editor to see or change what's on that page.
 - **`styles/`** — Controls how the site looks (colors, fonts, spacing). Edit `main.css` to adjust the look.
 - **`scripts/`** — Small bits of code that make the site interactive. Currently just updates the copyright year automatically.
 - **`assets/`** — Photos, logos, and other images.
@@ -104,7 +104,7 @@ Nothing is ever uploaded by hand. Once Cloudflare Pages is connected to the GitH
 2. Duplicate `example-project.md` and rename it (for example, `lakeside-home.md`).
 3. Open the new file and fill in the title, location, year, and description.
 4. Put project photos in a new folder inside `assets/projects/` (for example, `assets/projects/lakeside-home/`).
-5. Update `projects.html` to show the new project.
+5. Update `index.html` to show the new project.
 
 ### Update your story on the About page
 
