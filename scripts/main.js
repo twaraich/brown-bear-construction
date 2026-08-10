@@ -49,24 +49,60 @@ const lightbox = document.getElementById("project-lightbox");
 if (lightbox) {
   const lightboxName = document.getElementById("lightbox-name");
   const lightboxMeta = document.getElementById("lightbox-meta");
-  const lightboxGrid = document.getElementById("lightbox-grid");
+  const lightboxTrack = document.getElementById("lightbox-track");
+  const lightboxDots = document.getElementById("lightbox-dots");
   const lightboxClose = document.getElementById("lightbox-close");
+  const lightboxPrev = document.getElementById("lightbox-prev");
+  const lightboxNext = document.getElementById("lightbox-next");
+
+  let currentPhotos = [];
+  let currentIndex = 0;
+
+  function renderSlide() {
+    const photo = currentPhotos[currentIndex];
+    lightboxTrack.innerHTML = "";
+    const wrap = document.createElement("div");
+    wrap.className = "lightbox-photo";
+    const img = document.createElement("img");
+    img.src = photo.src;
+    img.alt = photo.alt;
+    wrap.appendChild(img);
+    lightboxTrack.appendChild(wrap);
+
+    lightboxDots.querySelectorAll(".lightbox-dot").forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentIndex);
+    });
+  }
+
+  function goTo(index) {
+    currentIndex = (index + currentPhotos.length) % currentPhotos.length;
+    renderSlide();
+  }
 
   function openProject(slug) {
     const project = PROJECTS[slug];
     if (!project) return;
     lightboxName.textContent = project.name;
     lightboxMeta.textContent = project.location + " · " + project.category;
-    lightboxGrid.innerHTML = "";
-    project.photos.forEach((photo) => {
-      const wrap = document.createElement("div");
-      wrap.className = "lightbox-photo";
-      const img = document.createElement("img");
-      img.src = photo.src;
-      img.alt = photo.alt;
-      wrap.appendChild(img);
-      lightboxGrid.appendChild(wrap);
-    });
+    currentPhotos = project.photos;
+    currentIndex = 0;
+
+    const multiplePhotos = currentPhotos.length > 1;
+    lightboxPrev.hidden = !multiplePhotos;
+    lightboxNext.hidden = !multiplePhotos;
+    lightboxDots.hidden = !multiplePhotos;
+    lightboxDots.innerHTML = "";
+    if (multiplePhotos) {
+      currentPhotos.forEach((_, i) => {
+        const dot = document.createElement("button");
+        dot.className = "lightbox-dot";
+        dot.setAttribute("aria-label", "Go to photo " + (i + 1));
+        dot.addEventListener("click", () => goTo(i));
+        lightboxDots.appendChild(dot);
+      });
+    }
+
+    renderSlide();
     lightbox.hidden = false;
   }
 
@@ -79,11 +115,30 @@ if (lightbox) {
   });
 
   lightboxClose.addEventListener("click", closeProject);
+  lightboxPrev.addEventListener("click", () => goTo(currentIndex - 1));
+  lightboxNext.addEventListener("click", () => goTo(currentIndex + 1));
   lightbox.addEventListener("click", (e) => {
     if (e.target === lightbox) closeProject();
   });
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !lightbox.hidden) closeProject();
+    if (lightbox.hidden) return;
+    if (e.key === "Escape") closeProject();
+    if (e.key === "ArrowLeft") goTo(currentIndex - 1);
+    if (e.key === "ArrowRight") goTo(currentIndex + 1);
+  });
+
+  // Touch swipe support for mobile.
+  let touchStartX = null;
+  lightboxTrack.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].clientX;
+  });
+  lightboxTrack.addEventListener("touchend", (e) => {
+    if (touchStartX === null) return;
+    const delta = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(delta) > 40) {
+      goTo(currentIndex + (delta < 0 ? 1 : -1));
+    }
+    touchStartX = null;
   });
 }
 
