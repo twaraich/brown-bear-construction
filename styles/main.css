@@ -62,43 +62,12 @@ nav {
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
 }
 
-.logo-mark {
-  font-family: var(--font-serif);
-  font-size: 1.9rem;
-  font-weight: 600;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--color-text);
-}
-
-.logo-mark .divider {
-  width: 1px;
-  height: 1.3rem;
-  background: rgba(23, 20, 15, 0.4);
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.logo-text .name {
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  color: var(--color-gold);
-}
-
-.logo-text .type {
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  color: var(--color-muted);
+.logo-img {
+  height: 2.5rem;
+  width: auto;
+  display: block;
 }
 
 nav ul {

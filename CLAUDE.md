@@ -120,7 +120,7 @@ These are defined as CSS custom properties at the top of `styles/main.css`. If t
 None of these have been decided. The scaffold uses placeholders in the meantime.
 
 - [ ] **Company name and branding.** Currently displayed as "Brown Bear Construction" with the tagline "Building Strength, Crafting Excellence." Confirm or replace.
-- [ ] **Logo files.** Upload to `assets/logo/` when finalized. Current header uses a text placeholder — swap to an `<img>` tag once real files exist.
+- [x] **Logo files.** `assets/logo/wordmark.png` added (cropped from a photo of the printed logo card) and wired into the header `<img>` on all pages. It's a raster crop of a photo, not a vector — if a clean SVG/high-res PNG of the logo becomes available, swap it in for sharper rendering at large sizes.
 - [ ] **Brand colors.** Confirm the palette or replace the estimates in `styles/main.css`.
 - [ ] **Domain name.** Once chosen, connect it under Custom domains in the Cloudflare Pages project and update any references.
 - [ ] **Business email.** Update the `mailto:` link and placeholder address on `contact.html`.
