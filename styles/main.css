@@ -266,6 +266,7 @@ main {
 }
 
 .project-photo {
+  position: relative;
   aspect-ratio: 4 / 5;
   overflow: hidden;
   margin-bottom: 1rem;
@@ -276,6 +277,20 @@ main {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.view-gallery-badge {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  padding: 0.55rem 1rem;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: var(--color-white);
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  pointer-events: none;
 }
 
 /* Fullscreen project photo lightbox, toggled by scripts/main.js. */
