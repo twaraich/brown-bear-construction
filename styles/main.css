@@ -279,7 +279,8 @@ main {
   display: block;
 }
 
-.view-gallery-badge {
+.view-gallery-badge,
+.coming-soon-badge {
   position: absolute;
   bottom: 16px;
   right: 16px;
@@ -291,6 +292,12 @@ main {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   pointer-events: none;
+}
+
+.coming-soon-badge {
+  background: rgba(184, 137, 43, 0.85);
+  border-color: rgba(255, 255, 255, 0.75);
+  font-style: italic;
 }
 
 /* Fullscreen project photo lightbox, toggled by scripts/main.js. */
