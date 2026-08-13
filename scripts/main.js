@@ -15,6 +15,7 @@ const PROJECTS = {
     category: "Custom Home",
     photos: [
       { src: "assets/projects/foxpoint/exterior.webp", alt: "Foxpoint exterior" },
+      { src: "assets/projects/foxpoint/exterior-angle.webp", alt: "Foxpoint exterior, angled view" },
       { src: "assets/projects/foxpoint/bookshelf.webp", alt: "Foxpoint built-in bookshelf" },
       { src: "assets/projects/foxpoint/fireplace.webp", alt: "Foxpoint stone fireplace" },
       { src: "assets/projects/foxpoint/kitchen-sink.webp", alt: "Foxpoint kitchen sink and windows" },
@@ -41,6 +42,7 @@ const PROJECTS = {
     category: "Duplex",
     photos: [
       { src: "assets/projects/burr/exterior.webp", alt: "Burr exterior" },
+      { src: "assets/projects/burr/backyard.webp", alt: "Burr backyard" },
     ],
   },
 };
