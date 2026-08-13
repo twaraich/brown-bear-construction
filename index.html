@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--
+  PLACEHOLDER PAGE. Every element on this page — the company name, tagline,
+  copy, structure, styling, and links — is a placeholder chosen as a
+  reasonable starting point. The site owner is the final approver of all
+  content and design decisions. Change anything freely.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brown Bear Construction — Custom Home Builder in Minneapolis</title>
+  <meta name="description" content="A portfolio of custom homes, renovations, and commercial builds by Brown Bear Construction, a Minneapolis, MN general contractor.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <img src="assets/logo/wordmark.webp" alt="Brown Bear Construction" class="logo-img">
+      </a>
+      <ul>
+        <li><a href="/" aria-current="page">Projects</a></li>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <img src="assets/hero/interior.webp" alt="Recently completed Brown Bear Construction interior">
+      <div class="page-hero-text">
+        <div class="eyebrow">SELECTED WORK</div>
+        <h1>Projects</h1>
+      </div>
+    </div>
+
+    <section>
+      <p class="intro-text" style="margin-top: 3rem;">Residential and commercial construction across the Twin Cities metro — built with precision, finished with care.</p>
+
+      <!-- Project entries live as markdown files in /content/projects/. -->
+      <div class="project-grid">
+        <button class="project-card" data-project="foxpoint" aria-haspopup="dialog">
+          <div class="project-card-head">
+            <div>
+              <div class="name">Foxpoint</div>
+              <div class="location">Minneapolis, MN</div>
+            </div>
+            <div class="category">Custom Home</div>
+          </div>
+          <div class="project-photo">
+            <img src="assets/projects/foxpoint/exterior.webp" alt="Foxpoint custom home exterior">
+            <div class="view-gallery-badge">View Gallery</div>
+          </div>
+        </button>
+
+        <button class="project-card" data-project="dale" aria-haspopup="dialog">
+          <div class="project-card-head">
+            <div>
+              <div class="name">Dale</div>
+              <div class="location">Minneapolis, MN</div>
+            </div>
+            <div class="category">Triplex</div>
+          </div>
+          <div class="project-photo">
+            <img src="assets/projects/dale/exterior.webp" alt="Dale triplex exterior">
+            <div class="view-gallery-badge">View Gallery</div>
+          </div>
+        </button>
+
+        <button class="project-card" data-project="burr" aria-haspopup="dialog">
+          <div class="project-card-head">
+            <div>
+              <div class="name">Burr</div>
+              <div class="location">St. Paul, MN</div>
+            </div>
+            <div class="category">Duplex</div>
+          </div>
+          <div class="project-photo">
+            <img src="assets/projects/burr/exterior.webp" alt="Burr duplex exterior">
+            <div class="view-gallery-badge">View Gallery</div>
+          </div>
+        </button>
+
+        <div class="project-card coming-soon">
+          <div class="project-card-head">
+            <div>
+              <div class="name">Colonial</div>
+              <div class="location">Minneapolis, MN</div>
+            </div>
+            <div class="category">Custom Home</div>
+          </div>
+          <div class="coming-soon-photo">Coming Soon</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="lightbox" id="project-lightbox" hidden>
+      <div class="lightbox-head">
+        <div>
+          <div class="name" id="lightbox-name"></div>
+          <div class="meta" id="lightbox-meta"></div>
+        </div>
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">&#10005;</button>
+      </div>
+      <div class="lightbox-carousel">
+        <button class="lightbox-arrow lightbox-prev" id="lightbox-prev" aria-label="Previous photo">&#10094;</button>
+        <div class="lightbox-track" id="lightbox-track"></div>
+        <button class="lightbox-arrow lightbox-next" id="lightbox-next" aria-label="Next photo">&#10095;</button>
+      </div>
+      <div class="lightbox-dots" id="lightbox-dots"></div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Brown Bear Construction. All rights reserved.</p>
+    <p>Minneapolis, MN &nbsp;·&nbsp; +1 (612) 889-4337</p>
+    <ul class="social">
+      <li><a href="https://instagram.com/brownbearconstructionmn" target="_blank" rel="noopener">Instagram</a></li>
+    </ul>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>

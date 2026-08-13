@@ -1,0 +1,552 @@
+/*
+  Main stylesheet.
+
+  Redesign based on a mockup the owner supplied: warm off-white background,
+  a serif display font for headings, and a sticky nav. Still a placeholder
+  in the sense that CLAUDE.md describes — change freely once the owner
+  confirms a direction.
+*/
+
+:root {
+  /* Brand colors. */
+  --color-black: #000000;
+  --color-gold: #b8892b;
+  --color-white: #ffffff;
+  --color-text: #17140f;
+  --color-muted: #6b6660;
+  --color-bg: #faf8f5;
+  --color-border: rgba(23, 20, 15, 0.1);
+  --color-overlay: rgba(4, 3, 2, 0.94);
+
+  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --max-width: 1100px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+}
+
+a { color: var(--color-gold); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Keeps full-size project photos from overflowing their container on mobile. */
+img { max-width: 100%; height: auto; }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 248, 245, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+  padding: 1.1rem 2rem;
+}
+
+nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 2.5rem;
+  width: auto;
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul a {
+  color: var(--color-text);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid transparent;
+}
+
+nav ul a:hover { text-decoration: none; opacity: 0.6; }
+
+nav ul a[aria-current="page"] { border-bottom-color: var(--color-muted); }
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* Full-bleed image banner used at the top of the home and projects pages. */
+.page-hero {
+  position: relative;
+  margin: -3rem -2rem 0;
+  width: calc(100% + 4rem);
+  height: 70vh;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.page-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.45) 45%, transparent 80%);
+}
+
+.page-hero-text {
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+  right: 2rem;
+  color: var(--color-white);
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.page-hero-text .eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  opacity: 0.85;
+  margin-bottom: 0.6rem;
+}
+
+.page-hero-text h1 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  margin: 0;
+}
+
+/* Centered text hero used on pages without a banner photo (About, Contact). */
+.text-hero {
+  max-width: 640px;
+  margin: 2rem auto 3rem;
+  text-align: center;
+}
+
+.text-hero p {
+  font-size: 1.0625rem;
+  line-height: 1.9;
+  text-align: justify;
+  color: rgba(23, 20, 15, 0.72);
+  margin-top: 1.75rem;
+}
+
+.text-divider {
+  width: 48px;
+  height: 1px;
+  background: rgba(23, 20, 15, 0.25);
+  margin: 1.75rem auto 2.25rem;
+}
+
+.text-hero .eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: var(--color-gold);
+  margin-bottom: 0.8rem;
+}
+
+.text-hero h1 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 0 0 1.5rem;
+}
+
+.text-hero h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(1.4rem, 3vw, 1.875rem);
+  line-height: 1.4;
+  margin: 0 0 1.5rem;
+  color: rgba(23, 20, 15, 0.85);
+}
+
+.intro-text {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: rgba(23, 20, 15, 0.8);
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.9rem 2.25rem;
+  background: var(--color-text);
+  color: var(--color-white);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+.cta:hover { background: var(--color-gold); text-decoration: none; }
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.project-card { cursor: pointer; border: none; padding: 0; background: none; text-align: left; font: inherit; color: inherit; }
+
+.project-card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.project-card-head .name {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+}
+
+.project-card-head .location {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  margin-top: 0.2rem;
+}
+
+.project-card-head .category {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: var(--color-gold);
+  white-space: nowrap;
+}
+
+.project-card.coming-soon { cursor: default; }
+
+.coming-soon-photo {
+  aspect-ratio: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  background: rgba(23, 20, 15, 0.04);
+  border: 1px dashed rgba(23, 20, 15, 0.2);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.375rem;
+  color: rgba(23, 20, 15, 0.4);
+}
+
+.project-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.project-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.view-gallery-badge {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  padding: 0.55rem 1rem;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: var(--color-white);
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* Fullscreen project photo lightbox, toggled by scripts/main.js. */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--color-overlay);
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 2rem;
+}
+
+.lightbox[hidden] { display: none; }
+
+.lightbox-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-shrink: 0;
+  color: var(--color-white);
+}
+
+.lightbox-head .name {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+}
+
+.lightbox-head .meta {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.25rem;
+}
+
+.lightbox-close {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: var(--color-white);
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.lightbox-carousel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 0;
+}
+
+.lightbox-track {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-photo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-photo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox-arrow {
+  flex-shrink: 0;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: var(--color-white);
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.lightbox-arrow:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.lightbox-arrow[hidden] { display: none; }
+
+.lightbox-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  padding-top: 1.25rem;
+  flex-shrink: 0;
+}
+
+.lightbox-dots[hidden] { display: none; }
+
+.lightbox-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.lightbox-dot.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 500px;
+  margin: 0 auto 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.contact-info div span {
+  color: var(--color-muted);
+  display: inline-block;
+  min-width: 5.5rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+
+.contact-form label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  margin-bottom: 0.4rem;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgba(23, 20, 15, 0.25);
+  background: none;
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: inherit;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.contact-form textarea { resize: vertical; }
+
+.contact-form button {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+footer {
+  border-top: 1px solid var(--color-border);
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  color: var(--color-muted);
+  margin-top: 4rem;
+}
+
+footer .social {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+/*
+  Mobile. One breakpoint is enough for a layout this simple — no hamburger
+  menu, the nav just stacks. Raise or lower 640px freely if the header
+  starts to feel cramped at a different width.
+*/
+@media (max-width: 640px) {
+  header { padding: 1rem 1.25rem; }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  nav ul { gap: 1.25rem; }
+
+  main { padding: 2rem 1.25rem; }
+
+  .page-hero {
+    margin: -2rem -1.25rem 0;
+    width: calc(100% + 2.5rem);
+    height: 50vh;
+    min-height: 320px;
+  }
+
+  .page-hero-text { left: 1.25rem; bottom: 1.25rem; right: 1.25rem; }
+
+  .hero { padding: 2.5rem 0; }
+
+  /*
+    Without this, the 280px track minimum in the base .project-grid rule
+    overflows the viewport on narrow phones and the page scrolls sideways.
+  */
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .form-row { grid-template-columns: 1fr; }
+
+  footer {
+    padding: 2rem 1.25rem;
+    margin-top: 3rem;
+    flex-direction: column;
+  }
+}

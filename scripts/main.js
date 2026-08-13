@@ -1,0 +1,176 @@
+// Brown Bear Construction — main script
+// Minimal starter. Add interactivity here as the site grows.
+
+// Auto-update the year in the footer.
+const yearEl = document.getElementById("year");
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
+
+// Project lightbox (homepage only).
+const PROJECTS = {
+  foxpoint: {
+    name: "Foxpoint",
+    location: "Minneapolis, MN",
+    category: "Custom Home",
+    photos: [
+      { src: "assets/projects/foxpoint/exterior.webp", alt: "Foxpoint exterior" },
+      { src: "assets/projects/foxpoint/exterior-angle.webp", alt: "Foxpoint exterior, angled view" },
+      { src: "assets/projects/foxpoint/bookshelf.webp", alt: "Foxpoint built-in bookshelf" },
+      { src: "assets/projects/foxpoint/fireplace.webp", alt: "Foxpoint stone fireplace" },
+      { src: "assets/projects/foxpoint/kitchen-sink.webp", alt: "Foxpoint kitchen sink and windows" },
+      { src: "assets/projects/foxpoint/mudroom-hooks.webp", alt: "Foxpoint mudroom hooks" },
+      { src: "assets/projects/foxpoint/coffee-bar.webp", alt: "Foxpoint built-in coffee bar" },
+      { src: "assets/projects/foxpoint/mudroom-hallway.webp", alt: "Foxpoint mudroom hallway" },
+      { src: "assets/projects/foxpoint/staircase.webp", alt: "Foxpoint staircase and entry" },
+    ],
+  },
+  dale: {
+    name: "Dale",
+    location: "Minneapolis, MN",
+    category: "Triplex",
+    photos: [
+      { src: "assets/projects/dale/exterior.webp", alt: "Dale exterior" },
+      { src: "assets/projects/dale/great-room.webp", alt: "Dale living, dining, and kitchen great room" },
+      { src: "assets/projects/dale/kitchen.webp", alt: "Dale kitchen island" },
+      { src: "assets/projects/dale/dining.webp", alt: "Dale dining room" },
+    ],
+  },
+  burr: {
+    name: "Burr",
+    location: "St. Paul, MN",
+    category: "Duplex",
+    photos: [
+      { src: "assets/projects/burr/exterior.webp", alt: "Burr exterior" },
+      { src: "assets/projects/burr/backyard.webp", alt: "Burr backyard" },
+    ],
+  },
+};
+
+const lightbox = document.getElementById("project-lightbox");
+if (lightbox) {
+  const lightboxName = document.getElementById("lightbox-name");
+  const lightboxMeta = document.getElementById("lightbox-meta");
+  const lightboxTrack = document.getElementById("lightbox-track");
+  const lightboxDots = document.getElementById("lightbox-dots");
+  const lightboxClose = document.getElementById("lightbox-close");
+  const lightboxPrev = document.getElementById("lightbox-prev");
+  const lightboxNext = document.getElementById("lightbox-next");
+
+  let currentPhotos = [];
+  let currentIndex = 0;
+
+  function renderSlide() {
+    const photo = currentPhotos[currentIndex];
+    lightboxTrack.innerHTML = "";
+    const wrap = document.createElement("div");
+    wrap.className = "lightbox-photo";
+    const img = document.createElement("img");
+    img.src = photo.src;
+    img.alt = photo.alt;
+    wrap.appendChild(img);
+    lightboxTrack.appendChild(wrap);
+
+    lightboxDots.querySelectorAll(".lightbox-dot").forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentIndex);
+    });
+  }
+
+  function goTo(index) {
+    currentIndex = (index + currentPhotos.length) % currentPhotos.length;
+    renderSlide();
+  }
+
+  function openProject(slug) {
+    const project = PROJECTS[slug];
+    if (!project) return;
+    lightboxName.textContent = project.name;
+    lightboxMeta.textContent = project.location + " · " + project.category;
+    currentPhotos = project.photos;
+    currentIndex = 0;
+
+    const multiplePhotos = currentPhotos.length > 1;
+    lightboxPrev.hidden = !multiplePhotos;
+    lightboxNext.hidden = !multiplePhotos;
+    lightboxDots.hidden = !multiplePhotos;
+    lightboxDots.innerHTML = "";
+    if (multiplePhotos) {
+      currentPhotos.forEach((_, i) => {
+        const dot = document.createElement("button");
+        dot.className = "lightbox-dot";
+        dot.setAttribute("aria-label", "Go to photo " + (i + 1));
+        dot.addEventListener("click", () => goTo(i));
+        lightboxDots.appendChild(dot);
+      });
+    }
+
+    renderSlide();
+    lightbox.hidden = false;
+  }
+
+  function closeProject() {
+    lightbox.hidden = true;
+  }
+
+  document.querySelectorAll(".project-card[data-project]").forEach((card) => {
+    card.addEventListener("click", () => openProject(card.dataset.project));
+  });
+
+  lightboxClose.addEventListener("click", closeProject);
+  lightboxPrev.addEventListener("click", () => goTo(currentIndex - 1));
+  lightboxNext.addEventListener("click", () => goTo(currentIndex + 1));
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeProject();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.hidden) return;
+    if (e.key === "Escape") closeProject();
+    if (e.key === "ArrowLeft") goTo(currentIndex - 1);
+    if (e.key === "ArrowRight") goTo(currentIndex + 1);
+  });
+
+  // Touch swipe support for mobile.
+  let touchStartX = null;
+  lightboxTrack.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].clientX;
+  });
+  lightboxTrack.addEventListener("touchend", (e) => {
+    if (touchStartX === null) return;
+    const delta = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(delta) > 40) {
+      goTo(currentIndex + (delta < 0 ? 1 : -1));
+    }
+    touchStartX = null;
+  });
+}
+
+// Contact form (contact.html only). No form backend is set up yet (see the
+// "Contact method" open decision in CLAUDE.md), so submitting opens an
+// email draft with the entered details instead of posting anywhere.
+const contactForm = document.getElementById("contact-form");
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = contactForm.name.value;
+    const phone = contactForm.phone.value;
+    const email = contactForm.email.value;
+    const type = contactForm.type.value;
+    const message = contactForm.message.value;
+
+    const body = [
+      "Name: " + name,
+      "Phone: " + phone,
+      "Email: " + email,
+      "Project type: " + type,
+      "",
+      message,
+    ].join("\n");
+
+    const mailto =
+      "mailto:brownbearconstructionmn@gmail.com" +
+      "?subject=" + encodeURIComponent("New project inquiry from " + (name || "website")) +
+      "&body=" + encodeURIComponent(body);
+
+    window.location.href = mailto;
+  });
+}
